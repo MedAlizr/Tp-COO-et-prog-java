@@ -40,5 +40,11 @@ public class ZooMain {
             //examples of "not found" animals
              System.out.println(ze.searchAnimal(animal3));
 
+        //instruction 13 prosit 3
+        //example of animal removal
+             ze.removeAnimal(animal1);
+             //print statements to verify if the removal occured
+             System.out.println(ze.searchAnimal(animal1));
+             ze.displayAnimals();
     }
 }

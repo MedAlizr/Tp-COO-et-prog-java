@@ -66,4 +66,23 @@ public class Zoo {
         }
         return found ;
     }
+
+
+    public void removeAnimal(Animal animal){
+        int animalIndex = searchAnimal(animal);
+        if(animalIndex != -1){
+            while(animals[animalIndex]!=null){
+                animals[animalIndex] = animals[animalIndex + 1];
+                animalIndex ++;
+            }
+            System.out.println("Animal removed successfully");
+        }
+        else
+        {
+            System.out.println("Animal doesn't exist");
+        }
+    }
+
+
+
 }
