@@ -102,6 +102,35 @@ public class Zoo {
         return isFull;
     }
 
+    //instruction 16 prosit 3
+    Zoo comparerZoo(Zoo z1, Zoo z2){
+        Zoo biggerZoo ;
+        int animalCounter = 0;
+        int animalCounter2 = 0;
+//        if(z1.isZooFull()== z2.isZooFull()){
+//            SySTEM.ou
+//        }
+
+
+        while((animalCounter < nbrCages -1) && (animalCounter2 < nbrCages -1) ){
+            if(z1.animals[animalCounter] != null){
+                animalCounter ++;
+            }
+            if (z2.animals[animalCounter2] != null) {
+                animalCounter2 ++;
+            }
+        }
+
+        if(animalCounter > animalCounter2){
+            biggerZoo = z1;
+        }else{
+            biggerZoo = z2;
+        }
+
+
+        return biggerZoo;
+    }
+
 
 
 }

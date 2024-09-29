@@ -15,6 +15,13 @@ public class ZooMain {
         //instance of Zoo class
         Zoo ze = new Zoo("myZoo","New York");
 
+        Zoo ze2 = new Zoo("myZoo2","New York");
+
+        //instance of Zoo used to store the comparison result
+        Zoo biggerZoo = new Zoo("","");
+
+
+
         //displays zoo info
         ze.displayZoo();
 
@@ -48,6 +55,13 @@ public class ZooMain {
              ze.displayAnimals();
              //checks if the zoo is full
              System.out.println(ze.isZooFull());
+
+            //calls the comparison method
+             biggerZoo = biggerZoo.comparerZoo(ze,ze2);
+             //displays the zoo with the larget animal count
+             System.out.print(biggerZoo.name);
+
+
 
     }
 }
