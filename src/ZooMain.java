@@ -13,7 +13,7 @@ public class ZooMain {
         Animal animal4= new Animal("canines","wolf",5,true);
 
         //instance of Zoo class
-        Zoo ze = new Zoo("myZoo","New York",25);
+        Zoo ze = new Zoo("myZoo","New York");
 
         //displays zoo info
         ze.displayZoo();
@@ -46,5 +46,8 @@ public class ZooMain {
              //print statements to verify if the removal occured
              System.out.println(ze.searchAnimal(animal1));
              ze.displayAnimals();
+             //checks if the zoo is full
+             System.out.println(ze.isZooFull());
+
     }
 }

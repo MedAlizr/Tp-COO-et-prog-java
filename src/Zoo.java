@@ -2,13 +2,13 @@ public class Zoo {
     Animal [] animals;
     String name;
     String city;
-    int nbrCages = 25;
+    final int nbrCages = 2;
 
-    public Zoo( String name, String city, int nbrCages) {
+    public Zoo( String name, String city) {
         animals = new Animal[nbrCages];
         this.name = name;
         this.city = city;
-        this.nbrCages = nbrCages;
+
     }
 
     public void displayZoo(){
@@ -71,9 +71,12 @@ public class Zoo {
     public void removeAnimal(Animal animal){
         int animalIndex = searchAnimal(animal);
         if(animalIndex != -1){
-            while(animals[animalIndex]!=null){
+            while(animals[animalIndex]!=null && animalIndex < nbrCages -1){
                 animals[animalIndex] = animals[animalIndex + 1];
                 animalIndex ++;
+                if(animalIndex==nbrCages-1){
+                    animals[animalIndex] = null;
+                }
             }
             System.out.println("Animal removed successfully");
         }
@@ -81,6 +84,22 @@ public class Zoo {
         {
             System.out.println("Animal doesn't exist");
         }
+    }
+
+    //instruction 15 prosit 3
+    public boolean isZooFull(){
+        int counter = 0 ;
+        boolean isFull = false;
+
+        while(animals[counter] != null && !isFull){
+            if(counter < nbrCages-1) {
+                counter++;
+            }else {
+                isFull = true;
+            }
+        }
+
+        return isFull;
     }
 
 
