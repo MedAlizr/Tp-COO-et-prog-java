@@ -14,4 +14,56 @@ public class Zoo {
     public void displayZoo(){
         System.out.println("Name : "+name +"\nCity : "+city +"\nCage number : "+nbrCages);
     }
+
+    //instruction 10 prosit 3
+    public boolean addAnimal(Animal animal){
+        //the return bool
+        boolean added = false;
+        //the counter
+        int animalCounter = 0;
+        //makes sure the zoo cages dont excede the number
+        if(nbrCages <= 25){
+            //makes sure the current case is empty else it passes to the next
+            while (animalCounter < nbrCages && added == false){
+                if(animals[animalCounter] == null)
+                {
+                    animals[animalCounter]= animal;
+                    animalCounter ++;
+                    added = true;
+                }
+                else
+                {
+                    animalCounter ++;
+                }
+            }
+        }
+        System.out.println(added);
+        System.out.println(animalCounter);
+        //returns the bool value
+        return added;
+    }
+
+    //instruction 11 prosit 3
+    public void displayAnimals(){
+        int animalCounter = 0;
+        while(animalCounter < nbrCages && animals[animalCounter] != null){
+            System.out.println(animals[animalCounter]);
+            animalCounter ++;
+        }
+    }
+
+    public int searchAnimal(Animal animal){
+        int animalCounter = 0;
+        int found = -1;
+        while(animalCounter < nbrCages && found == -1 && animals[animalCounter] != null){
+            if(animal.name == animals[animalCounter].name){
+                found = animalCounter;
+            }
+            else{
+                animalCounter ++;
+            }
+
+        }
+        return found ;
+    }
 }

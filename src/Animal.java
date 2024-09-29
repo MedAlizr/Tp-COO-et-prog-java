@@ -10,7 +10,7 @@ public class Animal {
         this.age = age;
         this.isMammal = isMammal;
     }
-    
+
     @Override
     public String toString(){
         String info = "Family : "+family+ ", Name : "+name+", age : "+age+", Mammal : "+isMammal;
