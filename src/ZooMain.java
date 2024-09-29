@@ -6,9 +6,12 @@ public class ZooMain {
 
         //animal class objects
         Animal animal1= new Animal("canines","wolf",5,true);
-        Animal animal4= new Animal("canines","wolf",5,true);
+
         Animal animal2= new Animal("felines","tiger",1,true);
         Animal animal3= new Animal("felines","lion",1,true);
+
+        Animal animal4= new Animal("canines","wolf",5,true);
+
         //instance of Zoo class
         Zoo ze = new Zoo("myZoo","New York",25);
 
@@ -24,13 +27,16 @@ public class ZooMain {
         ze.addAnimal(animal1);
         ze.addAnimal(animal2);
 
+        //this is added to verify if the unique animal condition is working (instruction 12)
+        ze.addAnimal(animal4);
+
         //instruction 11 prosit 3
             ze.displayAnimals();
 
             //examples of "found" animals
              System.out.println(ze.searchAnimal(animal1));
              System.out.println(ze.searchAnimal(animal2));
-             System.out.println(ze.searchAnimal(animal4));
+
             //examples of "not found" animals
              System.out.println(ze.searchAnimal(animal3));
 

@@ -21,8 +21,8 @@ public class Zoo {
         boolean added = false;
         //the counter
         int animalCounter = 0;
-        //makes sure the zoo cages dont excede the number
-        if(nbrCages <= 25){
+        //makes sure the zoo cages dont excede the number and that the animal does not exist
+        if(nbrCages <= 25 && searchAnimal(animal)== -1 ){
             //makes sure the current case is empty else it passes to the next
             while (animalCounter < nbrCages && added == false){
                 if(animals[animalCounter] == null)
