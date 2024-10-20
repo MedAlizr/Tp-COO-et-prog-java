@@ -1,19 +1,57 @@
+package tn.esprit.zooManagement.entities;
+
 public class Zoo {
-    Animal [] animals;
-    String name;
-    String city;
-    final int nbrCages = 2;
+    private Animal [] animals;
+    private String name;
+    private String city;
+    private final int nbrCages = 2;
 
     public Zoo( String name, String city) {
         animals = new Animal[nbrCages];
-        this.name = name;
+        setName(name);
         this.city = city;
 
+    }
+
+    public Animal[] getAnimals() {
+        return animals;
+    }
+
+    public void setAnimals(Animal[] animals) {
+        this.animals = animals;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+
+    public void setName(String name) {
+        if(name !="" && name !=null){
+            this.name = name;
+        }
+        else {
+            throw new IllegalArgumentException("Zoo name cant't be null");
+        }
+
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public int getNbrCages() {
+        return nbrCages;
     }
 
     public void displayZoo(){
         System.out.println("Name : "+name +"\nCity : "+city +"\nCage number : "+nbrCages);
     }
+
 
     //instruction 10 prosit 3
     public boolean addAnimal(Animal animal){
@@ -21,10 +59,11 @@ public class Zoo {
         boolean added = false;
         //the counter
         int animalCounter = 0;
+        boolean isZooFull = isZooFull();
         //makes sure the zoo cages dont excede the number and that the animal does not exist
-        if(nbrCages <= 25 && searchAnimal(animal)== -1 ){
+        if(nbrCages <= 25 && searchAnimal(animal)== -1 && !isZooFull ){
             //makes sure the current case is empty else it passes to the next
-            while (animalCounter < nbrCages && added == false){
+            while (animalCounter < nbrCages && !added){
                 if(animals[animalCounter] == null)
                 {
                     animals[animalCounter]= animal;
@@ -56,7 +95,7 @@ public class Zoo {
         int animalCounter = 0;
         int found = -1;
         while(animalCounter < nbrCages && found == -1 && animals[animalCounter] != null){
-            if(animal.name == animals[animalCounter].name){
+            if(animal.getName().equals(animals[animalCounter].getName())){
                 found = animalCounter;
             }
             else{
@@ -78,11 +117,11 @@ public class Zoo {
                     animals[animalIndex] = null;
                 }
             }
-            System.out.println("Animal removed successfully");
+            System.out.println("tn.esprit.zooManagement.entities.Animal removed successfully");
         }
         else
         {
-            System.out.println("Animal doesn't exist");
+            System.out.println("tn.esprit.zooManagement.entities.Animal doesn't exist");
         }
     }
 
@@ -103,7 +142,7 @@ public class Zoo {
     }
 
     //instruction 16 prosit 3
-    Zoo comparerZoo(Zoo z1, Zoo z2){
+    public Zoo comparerZoo(Zoo z1, Zoo z2){
         Zoo biggerZoo ;
         int animalCounter = 0;
         int animalCounter2 = 0;
@@ -130,6 +169,7 @@ public class Zoo {
 
         return biggerZoo;
     }
+
 
 
 

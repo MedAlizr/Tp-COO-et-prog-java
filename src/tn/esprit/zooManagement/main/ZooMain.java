@@ -1,3 +1,8 @@
+package tn.esprit.zooManagement.main;
+
+import tn.esprit.zooManagement.entities.Animal;
+import tn.esprit.zooManagement.entities.Zoo;
+
 public class ZooMain {
 
 
@@ -6,18 +11,16 @@ public class ZooMain {
 
         //animal class objects
         Animal animal1= new Animal("canines","wolf",5,true);
-
         Animal animal2= new Animal("felines","tiger",1,true);
         Animal animal3= new Animal("felines","lion",1,true);
-
         Animal animal4= new Animal("canines","wolf",5,true);
 
-        //instance of Zoo class
+        //instance of tn.esprit.zooManagement.entities.Zoo class
         Zoo ze = new Zoo("myZoo","New York");
 
         Zoo ze2 = new Zoo("myZoo2","New York");
 
-        //instance of Zoo used to store the comparison result
+        //instance of tn.esprit.zooManagement.entities.Zoo used to store the comparison result
         Zoo biggerZoo = new Zoo("","");
 
 
@@ -59,7 +62,9 @@ public class ZooMain {
             //calls the comparison method
              biggerZoo = biggerZoo.comparerZoo(ze,ze2);
              //displays the zoo with the larget animal count
-             System.out.print(biggerZoo.name);
+             System.out.print(biggerZoo.getName());
+
+             
 
 
 
