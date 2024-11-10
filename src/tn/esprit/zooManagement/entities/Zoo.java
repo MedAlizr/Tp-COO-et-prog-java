@@ -1,12 +1,14 @@
 package tn.esprit.zooManagement.entities;
 
+import tn.esprit.zooManagement.Exceptions.ZooFullException;
+
 public class Zoo {
 
     private Animal[] animals;
     public Aquatic[] AquaticAnimals = new Aquatic[10];
     private String name;
     private String city;
-    private final int nbrCages = 2;
+    private final int nbrCages = 25;
 
     public Zoo(String name, String city) {
         animals = new Animal[nbrCages];
@@ -53,30 +55,32 @@ public class Zoo {
     }
 
     // instruction 10 prosit 3
-    public boolean addAnimal(Animal animal) {
+    // modified after instruction 1 prosit 7
+    public void addAnimal(Animal animal) throws ZooFullException {
         // the return bool
         boolean added = false;
         // the counter
         int animalCounter = 0;
-        boolean isZooFull = isZooFull();
+        // boolean isZooFull = isZooFull();
         // makes sure the zoo cages dont excede the number and that the animal does not
         // exist
-        if (nbrCages <= 25 && searchAnimal(animal) == -1 && !isZooFull) {
+        if (nbrCages <= 25 && searchAnimal(animal) == -1) {
             // makes sure the current case is empty else it passes to the next
             while (animalCounter < nbrCages && !added) {
+                if (animalCounter >= animals.length) {
+                    throw new ZooFullException();
+                }
                 if (animals[animalCounter] == null) {
                     animals[animalCounter] = animal;
                     animalCounter++;
                     added = true;
+                    System.out.println("New animal number : " + animalCounter);
                 } else {
                     animalCounter++;
                 }
             }
         }
-        System.out.println(added);
-        System.out.println(animalCounter);
-        // returns the bool value
-        return added;
+
     }
 
     // instruction 11 prosit 3

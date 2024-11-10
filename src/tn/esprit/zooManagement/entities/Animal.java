@@ -1,15 +1,22 @@
 package tn.esprit.zooManagement.entities;
 
+import tn.esprit.zooManagement.Exceptions.InvalidAgeException;
+
 public class Animal {
-    private String family ;
-    private    String name;
+    private String family;
+    private String name;
     private int age;
     private boolean isMammal;
 
     public Animal(String family, String name, int age, boolean isMammal) {
         this.family = family;
         this.name = name;
-        setAge(age);
+        try {
+            setAge(age);
+        } catch (Exception e) {
+            System.err.println(e);
+        }
+
         this.isMammal = isMammal;
     }
 
@@ -33,11 +40,11 @@ public class Animal {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(int age) throws InvalidAgeException {
         if (age > 0) {
             this.age = age;
         } else {
-            throw new IllegalArgumentException("Age must be positive.");
+            throw new InvalidAgeException();
         }
     }
 
@@ -50,8 +57,8 @@ public class Animal {
     }
 
     @Override
-    public String toString(){
-        String info = "Family : "+family+ ", Name : "+name+", age : "+age+", Mammal : "+isMammal;
+    public String toString() {
+        String info = "Family : " + family + ", Name : " + name + ", age : " + age + ", Mammal : " + isMammal;
 
         return info;
     }
