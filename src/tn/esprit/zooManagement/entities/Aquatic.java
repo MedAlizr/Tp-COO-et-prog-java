@@ -1,6 +1,9 @@
 package tn.esprit.zooManagement.entities;
 
-public abstract class Aquatic extends Animal {
+import tn.esprit.zooManagement.Enumeration.Food;
+import tn.esprit.zooManagement.Interfaces.Carnivore;
+
+public abstract class Aquatic extends Animal implements Carnivore<Food> {
 
     protected String habitat;
 
@@ -27,5 +30,10 @@ public abstract class Aquatic extends Animal {
         } else
             return (this.getName() == other.getName()) && (this.getAge() == other.getAge())
                     && (this.habitat == other.habitat);
+    }
+
+    @Override
+    public void eatMeat(Food meat) {
+        System.out.println(this.getName() + " is eating " + meat.toString().toLowerCase() + ".");
     }
 }

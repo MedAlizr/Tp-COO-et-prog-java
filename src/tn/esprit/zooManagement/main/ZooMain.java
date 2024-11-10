@@ -1,5 +1,6 @@
 package tn.esprit.zooManagement.main;
 
+import tn.esprit.zooManagement.Enumeration.Food;
 import tn.esprit.zooManagement.entities.*;
 
 public class ZooMain {
@@ -88,6 +89,9 @@ public class ZooMain {
             ze.AquaticAnimals[counter].swim();
             counter++;
         }
+
+        terrestrialAnimal.eatPlantAndMeet(Food.MEAT);
+        penguin1.eatMeat(Food.MEAT);
 
     }
 }
