@@ -21,14 +21,15 @@ public abstract class Aquatic extends Animal implements Carnivore<Food> {
 
     @Override
     public boolean equals(Object obj) {
-        Aquatic other = (Aquatic) obj;
+
         if (this == obj) {
             return true;
         }
-        if (obj == null) {
+        if (obj == null || getClass() != obj.getClass()) {
             return false;
-        } else
-            return (this.getName() == other.getName()) && (this.getAge() == other.getAge())
+        }
+        Aquatic other = (Aquatic) obj;
+        return (this.getName() == other.getName()) && (this.getAge() == other.getAge())
                     && (this.habitat == other.habitat);
     }
 
